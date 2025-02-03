@@ -1,0 +1,25 @@
+{
+  "name": "backend-1-entrega-merida",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start":"node  ./src/app.js",
+    "dev": "nodemon ./src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0",
+    "express-handlebars": "^8.0.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.7.0",
+    "mongoose-paginate-v2": "^1.8.4",
+    "nodemon": "^3.1.7",
+    "socket.io": "^4.8.0",
+    "uuid": "^10.0.0"
+  }
+}

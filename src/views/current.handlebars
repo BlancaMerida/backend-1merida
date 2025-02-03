@@ -1,0 +1,19 @@
+<h2>Nombre: {{user.first_name}}</h2>
+<hr />
+<p>Correo electrónico: {{user.email}}</p>
+<p>Permisos: {{user.role}}</p>
+
+<script>
+    function mostrarMensaje(mensaje) {
+        divMensajes.textContent = mensaje;
+        setTimeout(() => { divMensajes.textContent = ''; }, 6000);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        function
+            getQueryParam(param) {
+                const urlParams = new
+                    URLSearchParams(window.location.search); return urlParams.get(param);
+        } const
+            mensaje = getQueryParam('mensaje'); if (mensaje) { mostrarMensaje(mensaje); }
+    });
+</script>
