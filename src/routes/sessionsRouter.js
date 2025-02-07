@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import passport from 'passport';
 import { SessionsController } from '../controllers/SessionsController.js'
-import { passportCall } from '../utils.js';
+import { passportCall } from '../utils/utils.js';
 
 export const router = Router();
 
@@ -33,3 +33,19 @@ router.get(
     SessionsController.logout
 );
 
+router.get(
+    '/github',
+    passport.authenticate(
+        'github',
+        {
+            scope: ['user:email'],
+            session: false
+        }
+    )
+);
+
+router.get(
+    '/github/callback',
+    passport.authenticate('github', { failureRedirect: '/api/sessions/error', session: false }),
+    SessionsController.githubCallback
+);

@@ -1,10 +1,12 @@
-// src/routes/apiProducts.router.js
 import { Router } from 'express';
 import ProductsController from '../controllers/ProductsController.js';
 import { auth } from '../middleware/auth.js';
-import { passportCall } from '../utils.js';
+import { passportCall } from '../utils/utils.js';
 
 export const router = Router();
+
+router.get('/mocks', ProductsController.createMockProduct);
+router.get('/mocks/:quantity', ProductsController.createMockProducts);
 
 router.use(passportCall('current'));
 

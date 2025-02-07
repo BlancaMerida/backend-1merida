@@ -2,7 +2,7 @@
 import { productService } from '../repository/Product.service.js';
 import { cartService } from '../repository/Cart.service.js';
 import { isValidObjectId } from 'mongoose';
-import { procesaErrores } from '../utils.js';
+import { procesaErrores } from '../utils/utils.js';
 import { v4 as uuidv4 } from 'uuid';
 import { ticketModel } from '../dao/models/ticketModel.js';
 

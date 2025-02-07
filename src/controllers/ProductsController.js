@@ -1,5 +1,6 @@
-import { productService } from '../repository/Product.service.js';
-import { procesaErrores } from '../utils.js';
+// src/controllers/ProductsController.js
+import { productService } from '../repository/Productservice.js';
+import { procesaErrores } from '../utils/utils.js';
 import { isValidObjectId } from 'mongoose';
 
 class ProductsController {
@@ -129,6 +130,26 @@ class ProductsController {
             res.status(200).json({ message: 'Producto eliminado correctamente' });
         } catch (error) {
             return procesaErrores(res, error);
+        }
+    }
+
+    async createMockProduct(req, res) {
+        try {
+            const one = await productService.createMockProduct()
+    
+            res.status(201).json({message: "Created!", response: one});
+        } catch (error) {
+            return procesaErrores(res, error);
+        }
+    }
+
+    async createMockProducts(req, res) {
+        try {
+            const { quantity } = req.params;
+            const products = await productService.createMockProducts(quantity);
+            return res.status(201).json({ message: `${quantity} Products Created! `, response: products });
+        } catch (error) {
+            throw new Error('Error creando Mock Product: ' + error.message)
         }
     }
 }
